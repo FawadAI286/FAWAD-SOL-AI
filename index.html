@@ -2,135 +2,531 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NEXORA AI — AI-powered content creation and social media automation platform.">
-  <title>NEXORA AI | Create. Automate. Grow.</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: #09090c;
-      color: #f4f1e9;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-    }
-    a { color: inherit; text-decoration: none; }
-    header {
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #29251d;
-    }
-    .logo { color: #dfbd72; font-size: 25px; font-weight: bold; letter-spacing: 3px; }
-    nav { display: flex; gap: 25px; flex-wrap: wrap; }
-    nav a { color: #ccc; font-size: 14px; }
-    nav a:hover, footer a:hover { color: #dfbd72; }
-    .hero {
-      min-height: 580px;
-      padding: 120px 8%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: radial-gradient(ellipse at 75% 35%, #292014 0%, #09090c 55%);
-    }
-    .tag { color: #dfbd72; letter-spacing: 4px; font-size: 12px; }
-    h1 { font-size: clamp(45px, 8vw, 82px); line-height: 1.1; margin: 24px 0; }
-    h1 span, h2 span { color: #dfbd72; }
-    .hero p { max-width: 600px; color: #b9b7b0; font-size: 18px; }
-    .button {
-      display: inline-block; margin-top: 30px; padding: 13px 25px;
-      background: #dfbd72; color: #111; border-radius: 5px;
-      font-weight: bold; width: fit-content;
-    }
-    section { padding: 85px 8%; }
-    h2 { font-size: 36px; margin-bottom: 20px; }
-    .intro { color: #b9b7b0; max-width: 720px; }
-    .grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px; margin-top: 35px;
-    }
-    .card {
-      background: #141419; border: 1px solid #302a20;
-      border-radius: 10px; padding: 27px;
-    }
-    .card h3 { color: #dfbd72; margin-bottom: 12px; }
-    .card p { color: #aaa; font-size: 14px; }
-    .legal { background: #101014; }
-    .legal a { color: #dfbd72; text-decoration: underline; }
-    .legal p { color: #aaa; margin: 12px 0; max-width: 850px; }
-    footer {
-      padding: 35px 8%; border-top: 1px solid #29251d;
-      color: #999; font-size: 13px;
-    }
-    footer .links { display: flex; gap: 22px; flex-wrap: wrap; margin: 15px 0; }
-    @media(max-width: 600px) {
-      header { align-items: flex-start; flex-direction: column; gap: 15px; }
-      nav { gap: 14px; }
-      section { padding: 60px 7%; }
-      .hero { padding: 90px 7%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NEXORA AI — Create, automate and grow with intelligent AI-powered content workflows.">
+<title>NEXORA AI | Create. Automate. Grow.</title>
+
+<style>
+:root {
+  --bg: #09090c;
+  --surface: #111116;
+  --gold: #dfbd72;
+  --gold-light: #f4dda5;
+  --text: #f4f1e9;
+  --muted: #a4a1a0;
+  --border: rgba(223,189,114,.19);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(9,9,12,.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 7px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #17130b;
+}
+
+.btn-primary:hover { transform: translateY(-2px); }
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--gold);
+}
+
+.hero {
+  padding: 105px 0 90px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(223,189,114,.13), transparent 55%);
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.gold { color: var(--gold); }
+
+.hero p {
+  color: var(--muted);
+  max-width: 650px;
+  margin: 24px auto 32px;
+  font-size: 17px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.preview {
+  margin: 65px auto 0;
+  max-width: 920px;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg,#17171d,#0e0e13);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 25px 90px rgba(0,0,0,.45);
+  text-align: left;
+}
+
+.preview-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-right: 6px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  min-height: 260px;
+}
+
+.sidebar {
+  padding: 22px 12px;
+  border-right: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.side-item {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+}
+
+.side-item.active {
+  color: var(--gold);
+  background: rgba(223,189,114,.1);
+}
+
+.dash-content { padding: 24px; }
+
+.dash-content h3 { margin-bottom: 6px; }
+
+.dash-content p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.dash-cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+}
+
+.dash-card {
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: rgba(255,255,255,.02);
+}
+
+.dash-card strong {
+  display: block;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.dash-card span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+section { padding: 85px 0; }
+
+.section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(30px,4vw,43px);
+  margin-bottom: 12px;
+}
+
+.section-heading p { color: var(--muted); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.about-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px;
+}
+
+.about-panel h3 {
+  color: var(--gold);
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.about-panel p { color: var(--muted); }
+
+.features {
+  background: #0d0d12;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+}
+
+.feature-card {
+  padding: 25px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: .25s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.feature-icon {
+  font-size: 27px;
+  margin-bottom: 17px;
+}
+
+.feature-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.cta {
+  text-align: center;
+  padding: 75px 25px;
+  background: linear-gradient(135deg,rgba(223,189,114,.12),rgba(223,189,114,.025));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.cta h2 {
+  font-size: clamp(29px,4vw,42px);
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+footer {
+  padding: 35px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+@media(max-width:800px) {
+  .nav-links { display: none; }
+  .feature-grid { grid-template-columns: repeat(2,1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+@media(max-width:520px) {
+  .hero { padding: 75px 0 60px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .dashboard { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .dash-cards { grid-template-columns: 1fr; }
+  section { padding: 65px 0; }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <a class="logo" href="#">NEXORA AI</a>
+
+<header>
+  <div class="container">
     <nav>
-      <a href="#home">Home</a>
+      <a class="logo" href="#">NEXORA AI</a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#contact" class="btn btn-outline">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="eyebrow">CREATE • AUTOMATE • GROW</div>
+
+    <h1>
+      Turn Your Ideas Into
+      <span class="gold">Intelligent Workflows.</span>
+    </h1>
+
+    <p>
+      Meet NEXORA AI — an AI-powered platform designed to simplify
+      content creation, automate repetitive tasks and help creators
+      work smarter.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#features" class="btn btn-primary">Explore Features</a>
+      <a href="#about" class="btn btn-outline">Discover NEXORA</a>
+    </div>
+
+    <div class="preview">
+      <div class="preview-top">
+        <span><span class="dot"></span> NEXORA AI WORKSPACE</span>
+        <span>Platform Preview</span>
+      </div>
+
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="side-item active">◈ Overview</div>
+          <div class="side-item">✦ AI Creation</div>
+          <div class="side-item">▣ Media Library</div>
+          <div class="side-item">↗ Publishing</div>
+          <div class="side-item">⚙ Settings</div>
+        </aside>
+
+        <div class="dash-content">
+          <h3>Your Creative Workspace</h3>
+          <p>A smarter way to manage your content workflow.</p>
+
+          <div class="dash-cards">
+            <div class="dash-card">
+              <strong>AI Creation</strong>
+              <span>Content workflows</span>
+            </div>
+            <div class="dash-card">
+              <strong>Media Hub</strong>
+              <span>Organize your media</span>
+            </div>
+            <div class="dash-card">
+              <strong>Social Flow</strong>
+              <span>Publishing workflow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">ABOUT NEXORA</div>
+      <h2>Technology That Works <span class="gold">Smarter.</span></h2>
+      <p>One vision: make intelligent automation more accessible and useful.</p>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <h2>More Than Just AI Tools.</h2>
+        <p style="color:var(--muted);margin-top:15px">
+          NEXORA AI is being developed as a unified workspace for
+          AI-powered content creation and automation. Our goal is to
+          connect intelligent agents with practical creator workflows.
+        </p>
+      </div>
+
+      <div class="about-panel">
+        <h3>Our Vision</h3>
+        <p>
+          Build a smarter digital ecosystem where creators can plan,
+          create and manage their work through intelligent AI systems.
+          We are developing this platform step by step.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">WHAT WE ARE BUILDING</div>
+      <h2>Powerful <span class="gold">AI Capabilities.</span></h2>
+      <p>Explore the core areas of the NEXORA AI vision.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">✦</div>
+        <h3>AI Content Creation</h3>
+        <p>Build intelligent workflows for scripts, ideas and creative content.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">▣</div>
+        <h3>Media Management</h3>
+        <p>Organize and manage your creative media in one workspace.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">↗</div>
+        <h3>Social Publishing</h3>
+        <p>Develop streamlined workflows for social media publishing.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚙</div>
+        <h3>Creator Workflow</h3>
+        <p>Bring multiple creative tasks together through AI automation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="cta">
+      <div class="eyebrow">THE FUTURE STARTS HERE</div>
+      <h2>Create. Automate. <span class="gold">Grow.</span></h2>
+      <p>NEXORA AI is evolving. Follow our journey as we build smarter workflows.</p>
+      <a href="#home" class="btn btn-primary">Back to Top</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong class="logo">NEXORA AI</strong>
+      <p>© 2026 NEXORA AI. All rights reserved.</p>
+    </div>
+
+    <div class="footer-links">
       <a href="#about">About</a>
       <a href="#features">Features</a>
-      <a href="#legal">Policies</a>
       <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="tag">CREATE • AUTOMATE • GROW</div>
-      <h1>Build Your Content.<br><span>Grow Your Vision.</span></h1>
-      <p>NEXORA AI is an AI-powered platform designed to help creators organize content workflows, prepare social media videos and manage publishing activities.</p>
-      <a class="button" href="#features">Explore NEXORA AI</a>
-    </section>
-
-    <section id="about">
-      <h2>About <span>NEXORA AI</span></h2>
-      <p class="intro">Our goal is to simplify content creation and social media workflows through practical AI-powered tools. NEXORA AI is being developed to support creators with content preparation, media organization and authorized publishing workflows.</p>
-    </section>
-
-    <section id="features">
-      <h2>Platform <span>Features</span></h2>
-      <p class="intro">The platform is being developed around these capabilities:</p>
-      <div class="grid">
-        <div class="card"><h3>AI Content Creation</h3><p>Tools to assist with content ideas, scripts and captions.</p></div>
-        <div class="card"><h3>Media Management</h3><p>Organize and prepare media for social publishing workflows.</p></div>
-        <div class="card"><h3>Social Publishing</h3><p>Connect supported social accounts and manage authorized publishing tasks.</p></div>
-        <div class="card"><h3>Creator Workflow</h3><p>Bring content preparation and publishing tasks into one workflow.</p></div>
-      </div>
-    </section>
-
-    <section class="legal" id="legal">
-      <h2>Legal <span>Information</span></h2>
-      <p>Our legal documents explain the terms of using NEXORA AI and how personal information is handled.</p>
-      <p><a href="terms.html">Terms of Service</a></p>
-      <p><a href="privacy.html">Privacy Policy</a></p>
-      <p>These documents must be completed and reviewed before the platform is opened to users.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact <span>Us</span></h2>
-      <p class="intro">For questions or support regarding NEXORA AI, contact the platform team.</p>
-      <p style="margin-top:20px;color:#dfbd72;">Contact information will be published here.</p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="logo">NEXORA AI</div>
-    <div class="links">
-      <a href="terms.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
     </div>
-    <p>© 2026 NEXORA AI. All rights reserved.</p>
-  </footer>
+  </div>
+</footer>
+
 </body>
 </html>
