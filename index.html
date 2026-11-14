@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEXORA AI — AI-powered content creation and social media automation platform.">
+  <title>NEXORA AI | Create. Automate. Grow.</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #09090c;
+      color: #f4f1e9;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #29251d;
+    }
+    .logo { color: #dfbd72; font-size: 25px; font-weight: bold; letter-spacing: 3px; }
+    nav { display: flex; gap: 25px; flex-wrap: wrap; }
+    nav a { color: #ccc; font-size: 14px; }
+    nav a:hover, footer a:hover { color: #dfbd72; }
+    .hero {
+      min-height: 580px;
+      padding: 120px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: radial-gradient(ellipse at 75% 35%, #292014 0%, #09090c 55%);
+    }
+    .tag { color: #dfbd72; letter-spacing: 4px; font-size: 12px; }
+    h1 { font-size: clamp(45px, 8vw, 82px); line-height: 1.1; margin: 24px 0; }
+    h1 span, h2 span { color: #dfbd72; }
+    .hero p { max-width: 600px; color: #b9b7b0; font-size: 18px; }
+    .button {
+      display: inline-block; margin-top: 30px; padding: 13px 25px;
+      background: #dfbd72; color: #111; border-radius: 5px;
+      font-weight: bold; width: fit-content;
+    }
+    section { padding: 85px 8%; }
+    h2 { font-size: 36px; margin-bottom: 20px; }
+    .intro { color: #b9b7b0; max-width: 720px; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px; margin-top: 35px;
+    }
+    .card {
+      background: #141419; border: 1px solid #302a20;
+      border-radius: 10px; padding: 27px;
+    }
+    .card h3 { color: #dfbd72; margin-bottom: 12px; }
+    .card p { color: #aaa; font-size: 14px; }
+    .legal { background: #101014; }
+    .legal a { color: #dfbd72; text-decoration: underline; }
+    .legal p { color: #aaa; margin: 12px 0; max-width: 850px; }
+    footer {
+      padding: 35px 8%; border-top: 1px solid #29251d;
+      color: #999; font-size: 13px;
+    }
+    footer .links { display: flex; gap: 22px; flex-wrap: wrap; margin: 15px 0; }
+    @media(max-width: 600px) {
+      header { align-items: flex-start; flex-direction: column; gap: 15px; }
+      nav { gap: 14px; }
+      section { padding: 60px 7%; }
+      .hero { padding: 90px 7%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#">NEXORA AI</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#legal">Policies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="tag">CREATE • AUTOMATE • GROW</div>
+      <h1>Build Your Content.<br><span>Grow Your Vision.</span></h1>
+      <p>NEXORA AI is an AI-powered platform designed to help creators organize content workflows, prepare social media videos and manage publishing activities.</p>
+      <a class="button" href="#features">Explore NEXORA AI</a>
+    </section>
+
+    <section id="about">
+      <h2>About <span>NEXORA AI</span></h2>
+      <p class="intro">Our goal is to simplify content creation and social media workflows through practical AI-powered tools. NEXORA AI is being developed to support creators with content preparation, media organization and authorized publishing workflows.</p>
+    </section>
+
+    <section id="features">
+      <h2>Platform <span>Features</span></h2>
+      <p class="intro">The platform is being developed around these capabilities:</p>
+      <div class="grid">
+        <div class="card"><h3>AI Content Creation</h3><p>Tools to assist with content ideas, scripts and captions.</p></div>
+        <div class="card"><h3>Media Management</h3><p>Organize and prepare media for social publishing workflows.</p></div>
+        <div class="card"><h3>Social Publishing</h3><p>Connect supported social accounts and manage authorized publishing tasks.</p></div>
+        <div class="card"><h3>Creator Workflow</h3><p>Bring content preparation and publishing tasks into one workflow.</p></div>
+      </div>
+    </section>
+
+    <section class="legal" id="legal">
+      <h2>Legal <span>Information</span></h2>
+      <p>Our legal documents explain the terms of using NEXORA AI and how personal information is handled.</p>
+      <p><a href="terms.html">Terms of Service</a></p>
+      <p><a href="privacy.html">Privacy Policy</a></p>
+      <p>These documents must be completed and reviewed before the platform is opened to users.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact <span>Us</span></h2>
+      <p class="intro">For questions or support regarding NEXORA AI, contact the platform team.</p>
+      <p style="margin-top:20px;color:#dfbd72;">Contact information will be published here.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">NEXORA AI</div>
+    <div class="links">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <p>© 2026 NEXORA AI. All rights reserved.</p>
+  </footer>
+</body>
+</html>
