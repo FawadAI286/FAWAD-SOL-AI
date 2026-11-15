@@ -810,9 +810,9 @@
             Contact FAWAD SOLUTIONS by email.
           </p>
 
-          <a href="mailto:fawadsolutions@gmail.com" class="btn btn-primary">Email Us</a>
+          <a href="#" data-email-link class="btn btn-primary">Email Us</a>
           <p class="contact-email" style="margin-top: 16px; margin-bottom: 0;">
-            <a href="mailto:fawadsolutions@gmail.com">fawadsolutions@gmail.com</a>
+            <a href="#" data-email-link data-email-text>fawadsolutions@gmail.com</a>
           </p>
         </div>
 
@@ -843,6 +843,35 @@
     </div>
   </footer>
 
+  <!-- EMAIL / GMAIL COMPOSE INTEGRATION -->
+  <script>
+    const BUSINESS_EMAIL = "fawadsolutions@gmail.com";
+
+    (function () {
+      const emailLinks = document.querySelectorAll("[data-email-link]");
+      const emailText = document.querySelector("[data-email-text]");
+
+      if (emailText) {
+        emailText.textContent = BUSINESS_EMAIL;
+      }
+
+      emailLinks.forEach(function (link) {
+        const composeUrl =
+          "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+          encodeURIComponent(BUSINESS_EMAIL);
+
+        link.href = composeUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.setAttribute(
+          "aria-label",
+          "Compose an email to " + BUSINESS_EMAIL
+        );
+      });
+    })();
+  </script>
+
+  <!-- DARK / LIGHT MODE -->
   <script>
     (function () {
       const root = document.documentElement;
