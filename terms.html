@@ -6,12 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Terms and Conditions for FAWAD SOLUTIONS and FAWAD SOL AI.">
   <meta name="theme-color" content="#09090c">
+
   <link rel="icon" type="image/png" href="./favicon.png">
   <link rel="apple-touch-icon" href="./favicon.png">
-  <title>Terms & Conditions | FAWAD SOLUTIONS</title>
+
+  <!-- SYNC THEME WITH HOMEPAGE -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("fawad-sol-ai-theme");
+        document.documentElement.setAttribute(
+          "data-theme",
+          savedTheme === "light" ? "light" : "dark"
+        );
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+
+  <title>Terms &amp; Conditions | FAWAD SOLUTIONS</title>
 
   <style>
     :root {
+      color-scheme: dark;
       --bg: #09090c;
       --surface: #111116;
       --gold: #dfbd72;
@@ -20,7 +38,19 @@
       --border: rgba(223,189,114,.2);
     }
 
-    * { box-sizing: border-box; }
+    html[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --gold: #9a7128;
+      --text: #202027;
+      --muted: #66656a;
+      --border: rgba(154,113,40,.24);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -28,11 +58,20 @@
       color: var(--text);
       font-family: Arial, sans-serif;
       line-height: 1.8;
+      transition: background .2s ease, color .2s ease;
     }
 
     header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
       border-bottom: 1px solid var(--border);
       padding: 22px 7%;
+    }
+
+    .header-brand {
+      min-width: 0;
     }
 
     .brand {
@@ -50,18 +89,64 @@
       letter-spacing: 3px;
     }
 
+    .theme-toggle {
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--gold);
+      cursor: pointer;
+    }
+
+    .theme-toggle svg {
+      width: 19px;
+      height: 19px;
+      display: block;
+    }
+
+    .theme-toggle .sun-icon {
+      display: none;
+    }
+
+    html[data-theme="light"] .theme-toggle .sun-icon {
+      display: block;
+    }
+
+    html[data-theme="light"] .theme-toggle .moon-icon {
+      display: none;
+    }
+
     main {
       max-width: 900px;
       margin: 65px auto;
       padding: 0 24px;
     }
 
-    h1, h2 { color: var(--gold); }
-    h1 { font-size: 38px; }
-    h2 { margin-top: 35px; font-size: 21px; }
+    h1, h2 {
+      color: var(--gold);
+    }
 
-    p, li { color: var(--muted); }
-    a { color: var(--gold); }
+    h1 {
+      font-size: 38px;
+    }
+
+    h2 {
+      margin-top: 35px;
+      font-size: 21px;
+    }
+
+    p, li {
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--gold);
+    }
 
     .notice {
       background: var(--surface);
@@ -83,18 +168,84 @@
       margin: 0 10px;
       text-decoration: none;
     }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      .brand {
+        font-size: 18px;
+        letter-spacing: 1.4px;
+      }
+
+      .parent {
+        font-size: 8px;
+        letter-spacing: 2px;
+      }
+
+      main {
+        margin: 38px auto;
+        padding: 0 5%;
+      }
+
+      h1 {
+        font-size: clamp(29px, 8vw, 38px);
+        overflow-wrap: break-word;
+      }
+
+      h2 {
+        font-size: 19px;
+      }
+
+      .notice {
+        padding: 15px;
+      }
+
+      footer {
+        padding: 24px 5%;
+      }
+
+      footer a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <a class="brand" href="./index.html">FAWAD SOLUTIONS</a>
-  <span class="parent">FAWAD SOL AI PLATFORM</span>
+  <div class="header-brand">
+    <a class="brand" href="./index.html">FAWAD SOLUTIONS</a>
+    <span class="parent">FAWAD SOL AI PLATFORM</span>
+  </div>
+
+  <button class="theme-toggle" id="theme-toggle" type="button"
+          aria-label="Switch to light mode" title="Switch theme">
+
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round"
+         aria-hidden="true">
+      <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.6 8.6 0 1 0 20.2 15.4Z"></path>
+    </svg>
+
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="1.8"
+         stroke-linecap="round" stroke-linejoin="round"
+         aria-hidden="true">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+    </svg>
+
+  </button>
 </header>
 
 <main>
-  <h1>Terms & Conditions</h1>
+
+  <h1>Terms &amp; Conditions</h1>
   <p>Last updated: November 15, 2026</p>
 
   <div class="notice">
@@ -219,6 +370,7 @@
       fawadsolutions@gmail.com
     </a>
   </p>
+
 </main>
 
 <footer>
@@ -226,6 +378,60 @@
   <a href="./privacy.html">Privacy Policy</a>
   <p>© 2026 FAWAD SOLUTIONS. All rights reserved.</p>
 </footer>
+
+<!-- DARK / LIGHT MODE -->
+<script>
+  (function () {
+    var root = document.documentElement;
+    var toggle = document.getElementById("theme-toggle");
+    var themeColor = document.querySelector('meta[name="theme-color"]');
+    var storageKey = "fawad-sol-ai-theme";
+
+    function applyTheme(theme) {
+      var selectedTheme = theme === "light" ? "light" : "dark";
+
+      root.setAttribute("data-theme", selectedTheme);
+
+      if (themeColor) {
+        themeColor.setAttribute(
+          "content",
+          selectedTheme === "light" ? "#f7f7f5" : "#09090c"
+        );
+      }
+
+      if (toggle) {
+        var nextTheme = selectedTheme === "dark" ? "light" : "dark";
+        toggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+        toggle.setAttribute("title", "Switch to " + nextTheme + " mode");
+      }
+    }
+
+    var savedTheme = "dark";
+
+    try {
+      savedTheme = localStorage.getItem(storageKey) || "dark";
+    } catch (error) {
+      savedTheme = root.getAttribute("data-theme") || "dark";
+    }
+
+    applyTheme(savedTheme);
+
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        var nextTheme =
+          root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
+        applyTheme(nextTheme);
+
+        try {
+          localStorage.setItem(storageKey, nextTheme);
+        } catch (error) {
+          // Theme remains active for this page if storage is unavailable.
+        }
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
