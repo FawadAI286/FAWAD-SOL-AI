@@ -57,9 +57,12 @@
 
     html {
       scroll-behavior: smooth;
+      max-width: 100%;
     }
 
     body {
+      max-width: 100%;
+      overflow-x: hidden;
       background: var(--bg);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
@@ -74,6 +77,7 @@
     .container {
       width: min(var(--max-width), 90%);
       margin: 0 auto;
+      min-width: 0;
     }
 
     /* HEADER */
@@ -260,7 +264,9 @@
     /* WORKSPACE PREVIEW */
 
     .preview {
+      width: 100%;
       max-width: 950px;
+      min-width: 0;
       margin: 70px auto 0;
       padding: 17px;
       text-align: left;
@@ -289,8 +295,9 @@
 
     .dashboard {
       display: grid;
-      grid-template-columns: 185px 1fr;
+      grid-template-columns: 185px minmax(0, 1fr);
       min-height: 270px;
+      min-width: 0;
     }
 
     .sidebar {
@@ -312,6 +319,7 @@
     }
 
     .dash-content {
+      min-width: 0;
       padding: 27px;
     }
 
@@ -328,11 +336,13 @@
 
     .dash-cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 13px;
+      min-width: 0;
     }
 
     .dash-card {
+      min-width: 0;
       padding: 19px 15px;
       border: 1px solid var(--border);
       border-radius: 9px;
@@ -361,6 +371,7 @@
       max-width: 700px;
       margin: 0 auto 48px;
       text-align: center;
+      min-width: 0;
     }
 
     .section-heading h2 {
@@ -378,9 +389,13 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       align-items: center;
       gap: 45px;
+    }
+
+    .about-copy {
+      min-width: 0;
     }
 
     .about-copy h2 {
@@ -395,6 +410,7 @@
     }
 
     .about-panel {
+      min-width: 0;
       padding: 34px;
       border: 1px solid var(--border);
       border-radius: 13px;
@@ -422,11 +438,12 @@
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 17px;
     }
 
     .feature-card {
+      min-width: 0;
       padding: 27px 21px;
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -457,6 +474,9 @@
     /* CTA */
 
     .cta {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       padding: 75px 25px;
       text-align: center;
       border: 1px solid var(--border);
@@ -515,17 +535,18 @@
       }
 
       .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .about-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     @media (max-width: 650px) {
       nav {
         min-height: 75px;
+        gap: 10px;
       }
 
       .nav-links {
@@ -541,7 +562,7 @@
       }
 
       .dashboard {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .sidebar {
@@ -549,52 +570,119 @@
       }
 
       .dash-cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .dash-content {
         padding: 20px 12px;
       }
 
+      .preview {
+        width: 100%;
+        padding: 12px;
+      }
+
       .preview-top {
+        align-items: flex-start;
+        flex-wrap: wrap;
         font-size: 10px;
+        overflow-wrap: anywhere;
+      }
+
+      .section-heading,
+      .about-copy,
+      .about-panel,
+      .cta {
+        min-width: 0;
+      }
+
+      .about-panel {
+        padding: 25px 22px;
+      }
+
+      .cta {
+        padding: 55px 18px;
       }
     }
 
     @media (max-width: 460px) {
       .feature-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .logo {
-        font-size: 19px;
-        letter-spacing: 1.8px;
+        font-size: 17px;
+        letter-spacing: 1.2px;
       }
 
       .parent-brand {
-        font-size: 8px;
-        letter-spacing: 2px;
-      }
-
-      .nav-actions .btn {
-        padding: 10px 13px;
-        font-size: 12px;
+        font-size: 7px;
+        letter-spacing: 1.6px;
       }
 
       .nav-actions {
-        gap: 8px;
+        gap: 6px;
+      }
+
+      .nav-actions .btn {
+        padding: 8px 9px;
+        font-size: 11px;
+        white-space: nowrap;
       }
 
       .theme-toggle {
-        width: 38px;
-        height: 38px;
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero h1 {
+        font-size: clamp(34px, 9vw, 42px);
+        letter-spacing: -1.3px;
+        overflow-wrap: break-word;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .preview-top {
+        gap: 6px;
+        letter-spacing: .5px;
+      }
+
+      .dash-card {
+        padding: 17px 14px;
       }
 
       .footer-inner {
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .footer-links {
+        gap: 14px;
+      }
     }
+
+    /* PREVENT MOBILE GRID AND TEXT OVERFLOW */
+
+    .container,
+    .preview,
+    .about-grid > *,
+    .feature-card,
+    .dash-content,
+    .dash-card {
+      min-width: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: break-word;
+    }
+
   </style>
 </head>
 
