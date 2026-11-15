@@ -1,1 +1,5 @@
 
+User-agent: *
+Allow: /
+
+Sitemap: https://fawadai286.github.io/FAWAD-SOL-AI/sitemap.xml
